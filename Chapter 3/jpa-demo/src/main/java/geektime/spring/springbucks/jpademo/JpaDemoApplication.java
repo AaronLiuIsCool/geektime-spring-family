@@ -30,7 +30,7 @@ public class JpaDemoApplication implements ApplicationRunner {
 		SpringApplication.run(JpaDemoApplication.class, args);
 	}
 
-	@Override
+	//@Override
 	public void run(ApplicationArguments args) throws Exception {
 		initOrders();
 	}
@@ -39,6 +39,7 @@ public class JpaDemoApplication implements ApplicationRunner {
 		Coffee espresso = Coffee.builder().name("espresso")
 				.price(Money.of(CurrencyUnit.of("CNY"), 20.0))
 				.build();
+
 		coffeeRepository.save(espresso);
 		log.info("Coffee: {}", espresso);
 
@@ -49,7 +50,7 @@ public class JpaDemoApplication implements ApplicationRunner {
 		log.info("Coffee: {}", latte);
 
 		CoffeeOrder order = CoffeeOrder.builder()
-				.customer("Li Lei")
+				.customer("Aaron Liu")
 				.items(Collections.singletonList(espresso))
 				.state(0)
 				.build();
@@ -57,7 +58,7 @@ public class JpaDemoApplication implements ApplicationRunner {
 		log.info("Order: {}", order);
 
 		order = CoffeeOrder.builder()
-				.customer("Li Lei")
+				.customer("Aaron Liu")
 				.items(Arrays.asList(espresso, latte))
 				.state(0)
 				.build();

@@ -1,10 +1,6 @@
 package geektime.spring.springbucks.jpademo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
 
@@ -19,6 +15,8 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Coffee extends BaseEntity implements Serializable {
     private String name;
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount",
